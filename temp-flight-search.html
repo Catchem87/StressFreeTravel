@@ -25,7 +25,7 @@
     <input type="date" id='end-date-input'><br>
 
     <label for='one-way-check'>One-way</label>
-    <input type="checkbox" id='one-way-input' name='one-way' value='one-way'><br>
+    <input type="checkbox" id='one-way-input' name='one-way'><br>
  
     <label for='duration-input'>Duration</label>
     <input type="number" id='duration-input' name='duration' placeholder="10"><br>
@@ -33,12 +33,19 @@
     <label for='direct-flight-input'>Direct flight only</label>
     <input type="checkbox" id='direct-flight-input' name='direct'><br>
  
-    <label for='max-price-input'>Duration</label>
+    <label for='max-price-input'>Max Price</label>
     <input type="number" id='max-price-input' name='max-price' placeholder="1000.00"><br>
  
-    <button type="submit" id="searchFlight">Searh Flight</button>
+    <label for='aggregation_mode_input'>Aggregation</label>
+    <input type="number" id='max-price-input' name='aggregation_mode_input'><br>
+    <small>DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.</small><br>
+    <button type="submit" id="searchFlight">Search Flight</button>
 
 </form>
+
+<div id='flightResponse'>
+    
+</div>
 
 </body>
 <script src="assets/javascript/apicalls.js"></script>
