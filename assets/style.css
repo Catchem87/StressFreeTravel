@@ -5,6 +5,20 @@
     background-position: center;
     background-size: cover;
 }
+#header {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+#navbar {
+    font-family: 'Bree Serif', serif;
+}
 #searchFlight {
     margin-bottom: 10px;
+}
+
+/* Phone on screens that are 640px or less */
+@media (max-width: 640px) {
+    #header {
+        font-size: 1.75rem;
+    }
 }
