@@ -1,3 +1,10 @@
+#body {
+    background-image: url(airplane-wing.jpg);
+    background-color: rgb(24, 18, 63);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 #searchFlight {
     margin-bottom: 10px;
 }

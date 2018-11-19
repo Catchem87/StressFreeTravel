@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body id="body">
     <nav>
         <div class="nav-wrapper #0d47a1 blue darken-4">
             <a href="index.html" class="brand-logo"><i class="material-icons">flight_takeoff</i>Travel Roulette</a>
-            <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down #0d47a1 blue darken-4">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -38,11 +38,21 @@
         <div class="col s1"></div>
         <form class="col s10">
             <div class="card">
+                <div class="row"></div>
                 <div class="row">
                     <div class="col s1"></div>
                     <div class="input-field col s10">
                         <input placeholder="Origin" id="origin-input" type="text" class="validate">
-                        <label for="origin_input">City of Origin</label>
+                        <label for="origin_input" id="first-input">City of Origin</label>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="input-field col s10">
+                        <input placeholder="Destination (leave blank for Roulette)" id="destination-input" type="text" class="validate">
+                        <label for="destination_input">Destination (optional)</label>
                     </div>
                     <div class="col s1"></div>
                 </div>
@@ -59,6 +69,32 @@
                     </div>
                     <div class="col s1"></div>
                 </div>
+
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="input-field col s10">
+                            <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option id="one-way-input" value="1">One-Way</option>
+                              <option id="round-trip-input" value="2">Round-Trip</option>
+                            </select>
+                            <label>One-Way or Round-Trip</label>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+                <div class="row">
+                        <div class="col s1"></div>
+                        <div class="input-field col s10">
+                                <select>
+                                  <option value="" disabled selected>Choose your option</option>
+                                  <option id="direct-flight-input" value="1">Direct Flight</option>
+                                  <option id="connecting-flight-input" value="2">Connections are acceptable</option>
+                                </select>
+                                <label>Direct Flight</label>
+                        </div>
+                        <div class="col s1"></div>
+                    </div>
 
                 <div class="row">
                     <div class="col s1"></div>
