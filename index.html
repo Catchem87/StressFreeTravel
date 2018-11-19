@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Travel Roulette</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper #0d47a1 blue darken-4">
+            <a href="index.html" class="brand-logo"><i class="material-icons">flight_takeoff</i>Travel Roulette</a>
+            <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <ul class="right hide-on-med-and-down #0d47a1 blue darken-4">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+
+
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col s1"></div>
+        <form class="col s10">
+            <div class="card">
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="input-field col s10">
+                        <input placeholder="Origin" id="origin-input" type="text" class="validate">
+                        <label for="origin_input">City of Origin</label>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="input-field col s5">
+                        <input id="start-date-input" type="date" class="validate">
+                        <label for="start_date_input">Departure Date</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input placeholder="5" id="duration-input" type="number" class="validate">
+                        <label for="duration_input">Number of Nights</label>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="input-field col s10">
+                        <input placeholder="3000" id="max-price-input" type="number" class="validate">
+                        <label for="max_price_input">Max. Price</label>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col s1"></div>
+                    <div class="col s10">
+                        <button class="btn #1a237e indigo darken-4" id="searchFlight" type="submit" name="action">Search</button>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/logic.js"></script>
+    <!-- Compiled and minified JavaScript  Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
