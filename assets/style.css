@@ -17,6 +17,11 @@
 
 #about-roulette {
     font-family: 'Kalam', cursive;
+    color: rgb(70, 70, 70);
+}
+#about-cardbody {
+    padding-right: 5%;
+    padding-left: 5%;
 }
 #easy-steps-list {
     font-size: 18pt;
