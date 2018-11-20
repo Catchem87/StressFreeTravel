@@ -23,12 +23,14 @@
     padding-right: 5%;
     padding-left: 5%;
 }
-#easy-steps-list {
-    font-size: 18pt;
-}
 #about-para {
-    font-size: 18pt;
+    font-size: 15pt;
 }
+#easy-steps-list {
+    font-size: 15pt;
+}
+
+
 
 /* Phone on screens that are 640px or less */
 @media (max-width: 640px) {
