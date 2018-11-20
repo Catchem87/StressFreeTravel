@@ -1,0 +1,39 @@
+#body {
+    background: url(airplane-wing.jpg) no-repeat center center fixed;
+    background-color: rgb(24, 18, 63);
+    background-size: cover;
+    height: 100%;
+}
+#header {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+#navbar {
+    font-family: 'Bree Serif', serif;
+}
+#searchFlight {
+    margin-bottom: 10px;
+}
+
+#about-roulette {
+    font-family: 'Kalam', cursive;
+}
+#easy-steps-list {
+    font-size: 18pt;
+}
+#about-para {
+    font-size: 18pt;
+}
+
+/* Phone on screens that are 640px or less */
+@media (max-width: 640px) {
+    #header {
+        font-size: 1.75rem;
+    }
+    #easy-steps-list {
+        font-size: 1.25rem;
+    }
+    #about-para {
+        font-size: 1.25rem;
+    }
+}
