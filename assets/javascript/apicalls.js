@@ -15,7 +15,7 @@ const inputAggregation_mode = document.getElementById("aggregation_mode_input")
 
 const inputCitySearch = document.getElementById('city-search-input')
 
-const inputCountrySearch = document.getElementById('country-search-input')
+// const inputCountrySearch = document.getElementById('country-search-input')
 
 // Flight Inspiration Search Parameters
 
@@ -54,10 +54,12 @@ var flight = {
         flight.search.origin = inputOrigin.value
         flight.search.destination = inputDestination.value
         flight.search.startDate = inputStartDate.value //start date for the departure range period
-        flight.search.endDate = inputEndDate.value //end date for the departure range period
-        flight.search.departureDate = (flight.search.endDate !== "") ?
-            flight.search.startDate + '--' + flight.search.endDate :
-            flight.search.startDate;
+        // flight.search.endDate = inputEndDate.value //end date for the departure range period
+        // flight.search.departureDate = (flight.search.endDate !== "") ?
+        //     flight.search.startDate + '--' + flight.search.endDate :
+        //     flight.search.startDate;
+        // WHEN WE ADD A RANGE PERIOD FOR SEARCH, PUT THE CODE ABOVE BACK AND REMOVE THE LINE BELLOW
+        flight.search.departureDate = flight.search.startDate 
         flight.search.oneWay = inputOneWay.checked
         flight.search.duration = inputDuration.value
         flight.search.direct = inputDirectFlight.checked
@@ -113,6 +115,8 @@ var flight = {
 
             var numberOfResults = 10 // configurable
 
+            if (length < numberOfResults) { numberOfResults = length };
+
             console.log('from:' + apiOrigin + '. Found ' + length + ' results')
 
             for (let i = 0; i < numberOfResults; i++) {
@@ -137,16 +141,16 @@ var airport = {
         'all_airports':false,
     },
     search(){
-        airport.search.city = inputCitySearch.value
-        airport.search.country = inputCountrySearch.value
+        airport.search.city = inputOrigin.value
+        // airport.search.country = inputCountrySearch.value
 
         var airportQueryURL = api.airport.url + '&apikey=' +
-        api.airport.key + '&term=' + inputCitySearch.value
+        api.airport.key + '&term=' + inputOrigin.value
 
     // add the country in the query
-    if (inputCountrySearch.value !== '') {
-        airportQueryURL += '&country=' + inputCountrySearch.value
-    }
+    // if (inputCountrySearch.value !== '') {
+    //     airportQueryURL += '&country=' + inputCountrySearch.value
+    // }
 
     $.ajax({
         url: airportQueryURL,
@@ -172,8 +176,8 @@ btnSearch.addEventListener("click", function (e) {
     flight.search();
 });
 
-inputCitySearch.addEventListener("keypress", function (e) {
-    var charNum = inputCitySearch.value.length
+inputOrigin.addEventListener("keypress", function (e) {
+    var charNum = inputOrigin.value.length
     
     if (charNum > 1){
         airport.search()
