@@ -1,6 +1,7 @@
 // map front-end buttons
 const btnSearch = document.getElementById("searchFlight")
 
+
 // map front-end input fields
 const inputOrigin = document.getElementById("origin-input")
 const inputDestination = document.getElementById("destination-input")
@@ -12,6 +13,9 @@ const inputDirectFlight = document.getElementById("direct-flight-input")
 const inputMaxPrice = document.getElementById("max-price-input")
 const inputAggregation_mode = document.getElementById("aggregation_mode_input")
 
+const inputCitySearch = document.getElementById('city-search-input')
+
+const inputCountrySearch = document.getElementById('country-search-input')
 
 // Flight Inspiration Search Parameters
 
@@ -21,6 +25,16 @@ const api = {
         'key': 'wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K',
         'url': 'https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?',
         'method': 'GET',
+    },
+    airport: {
+        'key':'wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K',
+        'url':'https://api.sandbox.amadeus.com/v1.2/airports/autocomplete?',
+        'method':'GET',
+    },
+    hotel: {
+        'key':'wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K',
+        'url':'https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?',
+        'method':'GET',
     }
 }
 
@@ -35,7 +49,6 @@ var flight = {
         'maxPrice': "", // Maximum price of trips to find in the result set, in the currency specified for this origin and destination pair in the cache contents spreadsheet. So, for example, if the origin is NYC, and the max price is 400, this means 400 USD. If the origin is PAR, and the max price is 400, this means 400 EUR. By default, no limit is applied
         'aggregationMode': "", //Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.
     },
-
     search() {
 
         flight.search.origin = inputOrigin.value
@@ -117,10 +130,54 @@ var flight = {
 };
 
 
+var airport = {
+    param: {
+        'term':"",
+        'country':"",
+        'all_airports':false,
+    },
+    search(){
+        airport.search.city = inputCitySearch.value
+        airport.search.country = inputCountrySearch.value
 
+        var airportQueryURL = api.airport.url + '&apikey=' +
+        api.airport.key + '&term=' + inputCitySearch.value
+
+    // add the country in the query
+    if (inputCountrySearch.value !== '') {
+        airportQueryURL += '&country=' + inputCountrySearch.value
+    }
+
+    $.ajax({
+        url: airportQueryURL,
+        method: api.airport.method,
+    }).then(function (response) {
+        console.log(response)
+   
+        // var length = response.results.length;
+
+        // console.log(response[0].label)
+        response.forEach((item) => {
+            let city = item.label
+            console.log(city)
+        });
+    })
+
+    }
+}
 
 
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
+});
+
+inputCitySearch.addEventListener("keypress", function (e) {
+    var charNum = inputCitySearch.value.length
+    
+    if (charNum > 1){
+        airport.search()
+    }
+    
+
 });
