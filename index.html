@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/autocomplete.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Kalam|Pacifico" rel="stylesheet">
 
 
@@ -58,9 +59,16 @@
 
                 <div class="row">
                     <div class="col s1"></div>
-                    <div class="input-field col s10">
+                    <div class="input-field col s5 autocomplete">
                         <input placeholder="Destination (leave blank for Roulette)" id="destination-input" type="text" class="validate">
                         <label for="destination_input">Destination (optional)</label>
+                    </div>
+                    <div class="col s1"></div>
+              
+                    <div class="col s1"></div>
+                    <div class="input-field col s5">
+                        <input placeholder="Country (leave blank for Roulette)" id="country-input" type="text" class="validate">
+                        <label for="country_input">Country Destination (optional)</label>
                     </div>
                     <div class="col s1"></div>
                 </div>
@@ -128,7 +136,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/logic.js"></script>
+    <script src="assets/javascript/autocomplete.js"></script>
     <script src="assets/javascript/apicalls.js"></script>
+
     <!-- Compiled and minified JavaScript  Materialize-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
