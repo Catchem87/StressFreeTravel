@@ -1,0 +1,52 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <form>
+    <label for='origin-input'>Origin City</label>
+    <input type="text" id='origin-input' name='origin' required><br>
+
+    <label for='destination-input'>Destination City (optional)</label>
+    <input type="text" id='destination-input' name='destination'><br>
+
+    <label for='start-date-input'>Start date</label>
+    <input type="date" id='start-date-input' name='departure_date'><br>
+    
+    <label for='end-date-input'>End date</label>
+    <input type="date" id='end-date-input'><br>
+
+    <label for='one-way-check'>One-way</label>
+    <input type="checkbox" id='one-way-input' name='one-way'><br>
+ 
+    <label for='duration-input'>Duration</label>
+    <input type="number" id='duration-input' name='duration' placeholder="10"><br>
+ 
+    <label for='direct-flight-input'>Direct flight only</label>
+    <input type="checkbox" id='direct-flight-input' name='direct'><br>
+ 
+    <label for='max-price-input'>Max Price</label>
+    <input type="number" id='max-price-input' name='max-price' placeholder="1000.00"><br>
+ 
+    <label for='aggregation_mode_input'>Aggregation</label>
+    <input type="number" id='max-price-input' name='aggregation_mode_input'><br>
+    <small>DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.</small><br>
+    <button type="submit" id="searchFlight">Search Flight</button>
+
+</form>
+
+<div id='flightResponse'>
+    
+</div>
+
+</body>
+<script src="assets/javascript/apicalls.js"></script>
+</html>
