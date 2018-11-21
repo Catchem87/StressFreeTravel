@@ -8,6 +8,10 @@ var airportList = {
     code: []
 }
 
+var numberOfFlights= 3;
+var numberOfHotels = 1;
+var numberOfRestaurantsDay = 1;
+
 // map front-end buttons
 const btnSearch = document.getElementById("searchFlight")
 
@@ -25,9 +29,9 @@ const inputAggregation_mode = document.getElementById("aggregation_mode_input")
 
 const inputCitySearch = document.getElementById('city-search-input')
 
-var inputCountrySearch = code;
+// var inputCountrySearch = code;
 
-var code = '' // this variable is used in autocomplete.js
+// var code = '' // this variable is used in autocomplete.js
 
 // Flight Inspiration Search Parameters
 
@@ -58,15 +62,11 @@ var flight = {
         'duration': "", //in days. It must be null if one-way is true
         'direct': false,
         'maxPrice': "", // Maximum price of trips to find in the result set, in the currency specified for this origin and destination pair in the cache contents spreadsheet. So, for example, if the origin is NYC, and the max price is 400, this means 400 USD. If the origin is PAR, and the max price is 400, this means 400 EUR. By default, no limit is applied
-        'aggregationMode': "", //Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.
+        'aggregationMode': "COUNTRY", //Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.
     },
     search() {
-
-        
-
-
         flight.search.origin = inputOrigin.value.substr(-4,3);
-        flight.search.destination = inputDestination.value
+        // flight.search.destination = inputDestination.value
         flight.search.startDate = inputStartDate.value //start date for the departure range period
         // flight.search.endDate = inputEndDate.value //end date for the departure range period
         // flight.search.departureDate = (flight.search.endDate !== "") ?
@@ -85,9 +85,9 @@ var flight = {
             api.flight.key + '&origin=' + flight.search.origin
 
         // add the destination in the query
-        if (flight.search.destination !== '') {
-            queryURL += '&destination=' + flight.search.destination
-        }
+        // if (flight.search.destination !== '') {
+        //     queryURL += '&destination=' + flight.search.destination
+        // }
 
         // add the start day in the query
         if (flight.search.departureDate !== '') {
@@ -115,6 +115,10 @@ var flight = {
             queryURL += '&max_price=' + flight.search.max_price
         }
 
+        if (flight.param.aggregationMode !== "") {
+            queryURL += '&aggregation_mode=' + flight.param.aggregationMode
+        }
+
         console.log(queryURL)
 
         $.ajax({
@@ -127,13 +131,11 @@ var flight = {
 
             var length = response.results.length;
 
-            var numberOfResults = 10 // configurable
-
-            if (length < numberOfResults) { numberOfResults = length };
+            if (length < numberOfFlights) { numberOfFlights = length };
 
             console.log('from:' + apiOrigin + '. Found ' + length + ' results')
 
-            for (let i = 0; i < numberOfResults; i++) {
+            for (let i = 0; i < numberOfFlights; i++) {
                 let apiDestination = response.results[i].destination
                 let apiDepartureDate = response.results[i].departure_date
                 let apiReturnDate = response.results[i].return_date
@@ -142,11 +144,42 @@ var flight = {
 
                 console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
+                hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
+
+                
+
             }
         })
     },
 };
 
+var hotel = {
+    search(location,checkIn, checkOut){
+
+        var hoteltQueryURL = api.hotel.url + '&apikey=' +
+        api.hotel.key + '&location=' + location + '&check_in=' + checkIn + '&check_out=' + checkOut 
+
+        $.ajax({
+            url: hoteltQueryURL,
+            method: api.hotel.method,
+        }).then(function (response) {
+      
+            for (i = 0; i < numberOfHotels; i++){
+             
+                console.log(response)
+                console.log(response.results[i])
+                
+            }
+            //  console.log(response)
+            // airportListFunc(document.getElementById("origin-input"), airportList.name);
+    
+          
+        })
+        
+
+
+    }
+}
 
 var airport = {
     param: {
@@ -447,19 +480,19 @@ function airportListFunc(inp, arr) {
 
 //   ---------------
 
-autocomplete(document.getElementById("country-input"), countries.name);
+// autocomplete(document.getElementById("country-input"), countries.name);
 
-function getCountryCode(){
-    // get the value from the Country input when the user press Enter or Clicks on a valid namie
-    let country = document.getElementById('country-input').value
+// function getCountryCode(){
+//     // get the value from the Country input when the user press Enter or Clicks on a valid namie
+//     let country = document.getElementById('country-input').value
 
-    // search the country name in the array and get the country code
-    let n = countries.name.indexOf(country)
+//     // search the country name in the array and get the country code
+//     let n = countries.name.indexOf(country)
 
-    if (n === -1) {
-        console.log('Country not found - add a error handler')
-    } else {
-        code = countries.code[n]
-        console.log(code)
-    }
-}
+//     if (n === -1) {
+//         console.log('Country not found - add a error handler')
+//     } else {
+//         code = countries.code[n]
+//         console.log(code)
+//     }
+// }
