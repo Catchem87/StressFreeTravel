@@ -8,8 +8,8 @@ var airportList = {
     code: []
 }
 
-var numberOfFlights= 3;
-var numberOfHotels = 1;
+var numberOfFlights= 10;
+var numberOfHotels = 5;
 var numberOfRestaurantsDay = 1;
 
 // map front-end buttons
@@ -29,6 +29,14 @@ const inputAggregation_mode = document.getElementById("aggregation_mode_input")
 
 const inputCitySearch = document.getElementById('city-search-input')
 
+// Retrieve data from local storage
+
+inputOrigin.value = localStorage.getItem("city");
+inputStartDate.value = localStorage.getItem("startDate");
+inputOneWay.value =  (localStorage.getItem("oneWay") === true)?'One-Way':'Round-Trip';
+inputDuration.value = localStorage.getItem("duration");
+inputDirectFlight.value = (localStorage.getItem("direct") === true)?1:2;
+inputMaxPrice.value =  localStorage.getItem("max_price");
 // var inputCountrySearch = code;
 
 // var code = '' // this variable is used in autocomplete.js
@@ -65,29 +73,31 @@ var flight = {
         'aggregationMode': "COUNTRY", //Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.
     },
     search() {
+        flight.search.city = inputOrigin.value
         flight.search.origin = inputOrigin.value.substr(-4,3);
-        // flight.search.destination = inputDestination.value
-        flight.search.startDate = inputStartDate.value //start date for the departure range period
-        // flight.search.endDate = inputEndDate.value //end date for the departure range period
-        // flight.search.departureDate = (flight.search.endDate !== "") ?
-        //     flight.search.startDate + '--' + flight.search.endDate :
-        //     flight.search.startDate;
-        // WHEN WE ADD A RANGE PERIOD FOR SEARCH, PUT THE CODE ABOVE BACK AND REMOVE THE LINE BELLOW
-        flight.search.departureDate = flight.search.startDate 
-        flight.search.oneWay = inputOneWay.checked
+        flight.search.departureDate = inputStartDate.value 
+        flight.search.oneWay = (inputOneWay.value === 1)? true : false;
         flight.search.duration = inputDuration.value
-        flight.search.direct = inputDirectFlight.checked
+        flight.search.direct = (inputDirectFlight.value === 1)? true: false;
         flight.search.max_price = inputMaxPrice.value
+        
+        
+        //set localstorage
+
+        localStorage.setItem("city", flight.search.city);
+        localStorage.setItem("startDate", flight.search.departureDate);
+        localStorage.setItem("oneWay", flight.search.oneWay);
+        localStorage.setItem("duration", flight.search.duration);
+        localStorage.setItem("direct", flight.search.direct);
+        localStorage.setItem("max_price", flight.search.max_price);
+
+
+
 
 
         // console.log(inputOrigin.value);
         var queryURL = api.flight.url + '&apikey=' +
             api.flight.key + '&origin=' + flight.search.origin
-
-        // add the destination in the query
-        // if (flight.search.destination !== '') {
-        //     queryURL += '&destination=' + flight.search.destination
-        // }
 
         // add the start day in the query
         if (flight.search.departureDate !== '') {
@@ -110,7 +120,6 @@ var flight = {
         }
 
         // add the max price in the query
-        // console.log(flight.search.max_price)
         if (flight.search.max_price !== "") {
             queryURL += '&max_price=' + flight.search.max_price
         }
@@ -145,9 +154,6 @@ var flight = {
                 console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
                 hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
-
-                
-
             }
         })
     },
@@ -164,20 +170,15 @@ var hotel = {
             method: api.hotel.method,
         }).then(function (response) {
       
+            let number = response.results.length
+            console.log(number)
+           
             for (i = 0; i < numberOfHotels; i++){
-             
-                console.log(response)
+            
                 console.log(response.results[i])
                 
-            }
-            //  console.log(response)
-            // airportListFunc(document.getElementById("origin-input"), airportList.name);
-    
-          
+            }    
         })
-        
-
-
     }
 }
 
@@ -189,17 +190,9 @@ var airport = {
     },
     search(){
         airport.search.city = inputOrigin.value
-        // airport.search.country = inputCountrySearch.value
 
-        // let code = getCountryCode();
-        // console.log(code)
         var airportQueryURL = api.airport.url + '&apikey=' +
         api.airport.key + '&term=' + inputOrigin.value
-
-    // add the country in the query
-    // if (inputCountrySearch !== '') {
-    //     airportQueryURL += '&country=' + inputCountrySearch
-    // }
 
     $.ajax({
         url: airportQueryURL,
@@ -207,19 +200,11 @@ var airport = {
     }).then(function (response) {
         airportList.name = [],
         airportList.code = [],
-        // console.log(response)
-   
-        // var length = response.results.length;
-
-        // console.log(response[0].label)
+  
         response.forEach((item) => {
             let city = item.label
             airportList.name.push(item.label)
             airportList.code.push(item.value)
-
-
-            // var div_data="<option value="+item.label+">"+item.label+"</option>";
-            // $(div_data).appendTo('#origin-input'); 
 
         });
         console.log(airportList.name)
@@ -372,7 +357,12 @@ function airportListFunc(inp, arr) {
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
     console.log('start')
-    inp.addEventListener("input", function(e) {
+    // showList();
+
+    inp.addEventListener("input", showList);
+    
+        function showList() {
+
         var a, b, i, val = this.value;
 
         /*close any already open lists of autocompleted values*/
@@ -415,7 +405,7 @@ function airportListFunc(inp, arr) {
             a.appendChild(b);
         //   }
         }
-    });
+    };
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {
         var x = document.getElementById(this.id + "autocomplete-list");
