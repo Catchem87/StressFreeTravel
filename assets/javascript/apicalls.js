@@ -8,7 +8,7 @@ var airportList = {
     code: []
 }
 
-var numberOfFlights= 10;
+var numberOfFlights= 3;
 var numberOfHotels = 5;
 var numberOfRestaurantsDay = 1;
 
@@ -154,10 +154,32 @@ var flight = {
                 console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
                 hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
+                city.search(apiDestination)
             }
         })
     },
 };
+
+var city = {
+    search(cityCode){
+
+        var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
+
+        $.ajax({
+            url: cityQueryURL,
+            method: 'GET',
+        }).then(function(response){
+            console.log(response)
+            if(response.city.state === ''){
+                var city = (response.city.name + ', ' + response.city.country)
+            }else {
+                var city = (response.city.name + ', ' + response.city.state)
+            }
+            console.log(city)
+        })
+    }
+};
+
 
 var hotel = {
     search(location,checkIn, checkOut){
