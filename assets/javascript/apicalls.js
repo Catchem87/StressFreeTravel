@@ -170,15 +170,16 @@ var city = {
             method: 'GET',
         }).then(function(response){
             console.log(response)
-            console.log(response.city.state)
             if(response.city.state === ''){
-                console.log(response.city.name + ', ' + response.city.country)
+                var city = (response.city.name + ', ' + response.city.country)
             }else {
-                console.log(response.city.name + ', ' + response.city.state)
+                var city = (response.city.name + ', ' + response.city.state)
             }
+            console.log(city)
         })
     }
-}
+};
+
 
 var hotel = {
     search(location,checkIn, checkOut){
