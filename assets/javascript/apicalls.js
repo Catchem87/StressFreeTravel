@@ -154,10 +154,25 @@ var flight = {
                 console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
                 hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
+                city.search(apiDestination)
             }
         })
     },
 };
+
+var city = {
+    search(cityCode){
+
+        var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
+
+        $.ajax({
+            url: cityQueryURL,
+            method: 'GET',
+        }).then(function(response){
+            console.log(response)
+        })
+    }
+}
 
 var hotel = {
     search(location,checkIn, checkOut){
