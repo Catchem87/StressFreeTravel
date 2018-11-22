@@ -8,7 +8,7 @@ var airportList = {
     code: []
 }
 
-var numberOfFlights= 10;
+var numberOfFlights= 3;
 var numberOfHotels = 5;
 var numberOfRestaurantsDay = 1;
 
@@ -170,6 +170,12 @@ var city = {
             method: 'GET',
         }).then(function(response){
             console.log(response)
+            console.log(response.city.state)
+            if(response.city.state === ''){
+                console.log(response.city.name + ', ' + response.city.country)
+            }else {
+                console.log(response.city.name + ', ' + response.city.state)
+            }
         })
     }
 }
