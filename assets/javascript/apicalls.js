@@ -164,36 +164,11 @@ var flight = {
 
                 var optionList = JSON.stringify(options)
                 localStorage.setItem('options', optionList)
-
             }
         })
     },
 };
 
-
-var hotel = {
-    search(location, checkIn, checkOut) {
-
-        var hoteltQueryURL = api.hotel.url + '&apikey=' +
-            api.hotel.key + '&location=' + location + '&check_in=' + checkIn + '&check_out=' + checkOut
-
-        $.ajax({
-            url: hoteltQueryURL,
-            method: 'GET',
-        }).then(function (response) {
-
-            // console.log(response)
-            // let number = response.results.length
-            // console.log(number)
-
-            // for (i = 0; i < numberOfHotels; i++){
-
-            // console.log(response.results[i])
-
-            // }    
-        })
-    }
-}
 
 var airport = {
     param: {

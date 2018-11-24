@@ -67,12 +67,8 @@ $(document).ready(function(){
         $('#flightDetailsTwo').show()
         $('#resultDetailsThree').show()
         $('#flightDetailsThree').show()
-    }
-
-    if(hotelResults !== 'null'){
-        $('#hotelDetailsOne').show()
-        $('#hotelDetailsTwo').show()
-        $('#hotelDetailsThree').show()
+    }else {
+        $('resultDetailsOne').show()
     }
 
     if(restaurantResults !== 'null'){
