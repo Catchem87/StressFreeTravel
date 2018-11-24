@@ -39,19 +39,11 @@
         <div class="col s1"></div>
     </div>
 
-    <div class="row">
-        <div class="col s1"></div>
-        <div class="col s10">
-            <span id="results"></span>
-        </div>
-        <div class="col s1"></div>
-    </div>
-
 
     <div class="carousel carousel-slider" data-indicators="true">
         <a class="carousel-item" href="#one!">
-            <ul hidden class="collection" id="resultDetails">
-                <li hidden class="collection-item avatar" id="flightDetails">
+            <ul hidden class="collection" id="resultDetailsOne">
+                <li hidden class="collection-item avatar" id="flightDetailsOne">
                     <i class="material-icons circle green">flight_takeoff</i>
                     <span class="flight"><b>Flight Details</b></span>
                     <p>Airline: <span id="airline"></span></p>
@@ -59,14 +51,14 @@
                     <p>Departure Date: <span id="departure-date"></span></p>
                     <p>Return Date: <span id="return-date"></span></p>
                 </li>
-                <li hidden class="collection-item avatar">
+                <li hidden class="collection-item avatar" id="hotelDetailsOne">
                     <i class="material-icons circle blue">hotel</i>
                     <span class="hotel"><b>Hotel Details</b></span>
                     <p>Hotel: <span id="hotel"></span></p>
                     <p>Check-in Date: <span id="check-in-date"></span></p>
                     <p>Check-out Date: <span id="check-out-date"></span></p>
                 </li>
-                <li hidden class="collection-item avatar">
+                <li hidden class="collection-item avatar" id="restaurantDetailsOne">
                     <i class="material-icons circle red">restaurant</i>
                     <span class="dinner"><b>Dinner Recommendations</b></span>
                     <p>Recommendation 1: <span id="restaurant1"></span></p>
@@ -76,8 +68,8 @@
             </ul>
         </a>
         <a class="carousel-item" href="#two!">
-            <ul hidden class="collection" id="resultDetails">
-                <li hidden class="collection-item avatar" id="flightDetails">
+            <ul hidden class="collection" id="resultDetailsTwo">
+                <li hidden class="collection-item avatar" id="flightDetailsTwo">
                     <i class="material-icons circle green">flight_takeoff</i>
                     <span class="flight"><b>Flight Details</b></span>
                     <p>Airline: <span id="airline"></span></p>
@@ -85,14 +77,14 @@
                     <p>Departure Date: <span id="departure-date"></span></p>
                     <p>Return Date: <span id="return-date"></span></p>
                 </li>
-                <li hidden class="collection-item avatar">
+                <li hidden class="collection-item avatar" id="hotelDetailsTwo">
                     <i class="material-icons circle blue">hotel</i>
                     <span class="hotel"><b>Hotel Details</b></span>
                     <p>Hotel: <span id="hotel"></span></p>
                     <p>Check-in Date: <span id="check-in-date"></span></p>
                     <p>Check-out Date: <span id="check-out-date"></span></p>
                 </li>
-                <li hidden class="collection-item avatar">
+                <li hidden class="collection-item avatar" id="restaurantDetailsTwo">
                     <i class="material-icons circle red">restaurant</i>
                     <span class="dinner"><b>Dinner Recommendations</b></span>
                     <p>Recommendation 1: <span id="restaurant1"></span></p>
@@ -101,6 +93,33 @@
                 </li>
             </ul>
         </a>
+
+        <a class="carousel-item" href="#three!">
+                <ul hidden class="collection" id="resultDetailsThree">
+                    <li hidden class="collection-item avatar" id="flightDetailsThree">
+                        <i class="material-icons circle green">flight_takeoff</i>
+                        <span class="flight"><b>Flight Details</b></span>
+                        <p>Airline: <span id="airline"></span></p>
+                        <p>Destination: <span id="destination"></span></p>
+                        <p>Departure Date: <span id="departure-date"></span></p>
+                        <p>Return Date: <span id="return-date"></span></p>
+                    </li>
+                    <li hidden class="collection-item avatar" id="hotelDetailsThree">
+                        <i class="material-icons circle blue">hotel</i>
+                        <span class="hotel"><b>Hotel Details</b></span>
+                        <p>Hotel: <span id="hotel"></span></p>
+                        <p>Check-in Date: <span id="check-in-date"></span></p>
+                        <p>Check-out Date: <span id="check-out-date"></span></p>
+                    </li>
+                    <li hidden class="collection-item avatar" id="restaurantDetailsThree">
+                        <i class="material-icons circle red">restaurant</i>
+                        <span class="dinner"><b>Dinner Recommendations</b></span>
+                        <p>Recommendation 1: <span id="restaurant1"></span></p>
+                        <p>Recommendation 2: <span id="restaurant2"></span></p>
+                        <p>Recommendation 3: <span id="restaurant3"></span></p>
+                    </li>
+                </ul>
+            </a>
     </div>
 
 
@@ -112,5 +131,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script src="assets/javascript/results.js"></script>
+<script src="assets/javascript/login.js"></script>
 
 </html>

@@ -238,6 +238,7 @@ var city = {
 
             // console.log(response)
             options[i].city = response.city.name,
+                options[i].state = response.city.state,
                 options[i].lat = response.city.location.latitude,
                 options[i].lon = response.city.location.longitude,
 
@@ -262,6 +263,7 @@ var city = {
                 'user-key': api.restaurant.key
             }
         }).then(function (response) {
+            console.log(response)
             options[i].restaurants = [],
                 response.restaurants.forEach(item => {
                     options[i].restaurants.push({

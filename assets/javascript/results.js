@@ -1,9 +1,8 @@
 $(document).ready(function(){
-    $('.carousel').carousel(
-        {
-    
-        }
-    );
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+      });
 
     var flightResults =  JSON.parse(localStorage.getItem('flightResults'));
     console.log(flightResults)
@@ -62,7 +61,23 @@ $(document).ready(function(){
     // };
 
     if(flightResults !== 'null'){
-        $('#resultDetails').show(10)
-        $('#flightDetails').show(10)
+        $('#resultDetailsOne').show()
+        $('#flightDetailsOne').show()
+        $('#resultDetailsTwo').show()
+        $('#flightDetailsTwo').show()
+        $('#resultDetailsThree').show()
+        $('#flightDetailsThree').show()
+    }
+
+    if(hotelResults !== 'null'){
+        $('#hotelDetailsOne').show()
+        $('#hotelDetailsTwo').show()
+        $('#hotelDetailsThree').show()
+    }
+
+    if(restaurantResults !== 'null'){
+        $('#restaurantDetailsOne').show()
+        $('#restaurantDetailsTwo').show()
+        $('#restaurantDetailsThree').show()
     }
 })
