@@ -247,12 +247,15 @@ var city = {
             }).then(function(response){
               
                 console.log(response)
-                options[i].name = response.city.name,
+                options[i].country = response.city.name,
                 options[i].state = response.city.state,
                 options[i].lat = response.city.location.latitude,
                 options[i].lon = response.city.location.longitude,
                 console.log(options[i])
             })
+        },
+        restaurants(lat, long, number){
+            
         }
     };
 
