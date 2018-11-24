@@ -68,4 +68,16 @@ $(document).ready(function(){
         $('#resultDetailsThree').show()
         $('#flightDetailsThree').show()
     }
+
+    if(hotelResults !== 'null'){
+        $('#hotelDetailsOne').show()
+        $('#hotelDetailsTwo').show()
+        $('#hotelDetailsThree').show()
+    }
+
+    if(restaurantResults !== 'null'){
+        $('#restaurantDetailsOne').show()
+        $('#restaurantDetailsTwo').show()
+        $('#restaurantDetailsThree').show()
+    }
 })
