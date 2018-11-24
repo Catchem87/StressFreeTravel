@@ -11,7 +11,8 @@ var airportList = {
 var numberOfFlights= 3;
 var numberOfHotels = 5;
 var numberOfRestaurantsDay = 1;
-
+var options = [];
+var cities = [];
 // map front-end buttons
 const btnSearch = document.getElementById("searchFlight")
 
@@ -153,31 +154,27 @@ var flight = {
 
                 console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
+                 
+                 options[i] = {
+                    'destination': apiDestination,
+                    'departure': apiDepartureDate,
+                    'return': apiReturnDate,
+                    'price': apiPrice,
+                    'airline':apiAirline
+                }
+
+                var flightResults = JSON.stringify(options)
+
+                localStorage.setItem('flightResults', flightResults)
+                console.log(flightResults)
+
+                // localStorage.setItem("max_price", flight.search.max_price);
+
+                
                 hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
-                city.search(apiDestination)
             }
         })
     },
-};
-
-var city = {
-    search(cityCode){
-
-        var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
-
-        $.ajax({
-            url: cityQueryURL,
-            method: 'GET',
-        }).then(function(response){
-            console.log(response)
-            if(response.city.state === ''){
-                var city = (response.city.name + ', ' + response.city.country)
-            }else {
-                var city = (response.city.name + ', ' + response.city.state)
-            }
-            console.log(city)
-        })
-    }
 };
 
 
