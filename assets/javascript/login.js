@@ -1,3 +1,4 @@
+const btnLoginSubmit = document.getElementById("loginSubmit")
 
 function login(){
     loginFirstName = first_name.value
@@ -9,12 +10,11 @@ function login(){
     localStorage.setItem("Email", loginEmail);
 }
 
-const btnLoginSubmit = document.getElementById("loginSubmit")
 
 btnLoginSubmit.addEventListener("click", function (e) {
     e.preventDefault();
     login();
-    window.location = "index.html"
+    window.location = "search.html"
 });
 
 
