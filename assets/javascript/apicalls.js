@@ -164,17 +164,21 @@ var flight = {
 
                 var optionList = JSON.stringify(options)
                 localStorage.setItem('options', optionList)
+<<<<<<< HEAD
 
 <<<<<<< HEAD
                 
 =======
 >>>>>>> master
+=======
+>>>>>>> cd8b395972c353deb9caae3444796c64f9adbc12
             }
         })
     },
 };
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -201,7 +205,6 @@ var hotel = {
         })
     }
 }
->>>>>>> master
 
 var airport = {
     param: {
