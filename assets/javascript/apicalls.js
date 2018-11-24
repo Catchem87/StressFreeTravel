@@ -135,7 +135,7 @@ var flight = {
             url: queryURL,
             method: api.flight.method,
         }).then(function (response) {
-            console.log(response)
+            // console.log(response)
             var apiCurrency = response.currency;
             var apiOrigin = response.origin;
 
@@ -143,7 +143,7 @@ var flight = {
 
             if (length < numberOfFlights) { numberOfFlights = length };
 
-            console.log('from:' + apiOrigin + '. Found ' + length + ' results')
+            // console.log('from:' + apiOrigin + '. Found ' + length + ' results')
 
             for (let i = 0; i < numberOfFlights; i++) {
                 let apiDestination = response.results[i].destination
@@ -152,7 +152,7 @@ var flight = {
                 let apiPrice = response.results[i].price
                 let apiAirline = response.results[i].airline
 
-                console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
+                // console.log(apiAirline + " | " + apiDestination + ' ' + apiDepartureDate + ' ' + apiReturnDate + ':' + apiCurrency + apiPrice)
 
                  
                  options[i] = {
@@ -163,15 +163,18 @@ var flight = {
                     'airline':apiAirline
                 }
 
-                var flightResults = JSON.stringify(options)
+                // console.log(options[i])
 
-                localStorage.setItem('flightResults', flightResults)
-                console.log(flightResults)
+                // var flightResults = JSON.stringify(options)
+
+                // localStorage.setItem('flightResults', flightResults)
+                // console.log(flightResults)
 
                 // localStorage.setItem("max_price", flight.search.max_price);
 
                 
                 hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
+                city.search(apiDestination, i)
             }
         })
     },
@@ -189,14 +192,15 @@ var hotel = {
             method: api.hotel.method,
         }).then(function (response) {
       
-            let number = response.results.length
-            console.log(number)
+            // console.log(response)
+            // let number = response.results.length
+            // console.log(number)
            
-            for (i = 0; i < numberOfHotels; i++){
+            // for (i = 0; i < numberOfHotels; i++){
             
-                console.log(response.results[i])
+                // console.log(response.results[i])
                 
-            }    
+            // }    
         })
     }
 }
@@ -226,15 +230,31 @@ var airport = {
             airportList.code.push(item.value)
 
         });
-        console.log(airportList.name)
-        airportListFunc(document.getElementById("origin-input"), airportList.name);
-
-      
+        // console.log(airportList.name)
+        airportListFunc(document.getElementById("origin-input"), airportList.name);     
     })
-
     }
 }
 
+var city = {
+        search(cityCode, i){
+    
+            var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
+    
+            $.ajax({
+                url: cityQueryURL,
+                method: 'GET',
+            }).then(function(response){
+              
+                console.log(response)
+                options[i].name = response.city.name,
+                options[i].state = response.city.state,
+                options[i].lat = response.city.location.latitude,
+                options[i].lon = response.city.location.longitude,
+                console.log(options[i])
+            })
+        }
+    };
 
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
@@ -375,7 +395,6 @@ function airportListFunc(inp, arr) {
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
-    console.log('start')
     // showList();
 
     inp.addEventListener("input", showList);
@@ -393,7 +412,7 @@ function airportListFunc(inp, arr) {
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         /*append the DIV element as a child of the autocomplete container:*/
-        console.log('2')
+        // console.log('2')
         this.parentNode.appendChild(a);
 
         /*for each item in the array...*/
