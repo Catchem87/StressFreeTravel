@@ -171,35 +171,13 @@ var flight = {
                 // localStorage.setItem("max_price", flight.search.max_price);
 
                 
-                hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
             }
         })
     },
 };
 
 
-var hotel = {
-    search(location,checkIn, checkOut){
 
-        var hoteltQueryURL = api.hotel.url + '&apikey=' +
-        api.hotel.key + '&location=' + location + '&check_in=' + checkIn + '&check_out=' + checkOut 
-
-        $.ajax({
-            url: hoteltQueryURL,
-            method: api.hotel.method,
-        }).then(function (response) {
-      
-            let number = response.results.length
-            console.log(number)
-           
-            for (i = 0; i < numberOfHotels; i++){
-            
-                console.log(response.results[i])
-                
-            }    
-        })
-    }
-}
 
 var airport = {
     param: {

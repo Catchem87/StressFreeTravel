@@ -1,4 +1,4 @@
-const btnLoginSubmit = document.getElementById("loginSubmit")
+const btnLoginSubmit = document.getElementById("login-submit")
 
 function login(){
     loginFirstName = first_name.value
@@ -11,7 +11,7 @@ function login(){
 }
 
 
-btnLoginSubmit.addEventListener("click", function (e) {
+$('#login-submit').on('click', function(e){
     e.preventDefault();
     login();
     window.location = "search.html"
