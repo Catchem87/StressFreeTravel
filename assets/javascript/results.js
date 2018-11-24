@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    $('.carousel').carousel(
+        {
+    
+        }
+    );
+
     var flightResults =  JSON.parse(localStorage.getItem('flightResults'));
     console.log(flightResults)
 
@@ -22,9 +28,9 @@ $(document).ready(function(){
     console.log(prices)
     console.log(destinations)
     }
-    
 
     createVariables();
+
 
     // var city = {
     //     search(cityCode){
@@ -55,8 +61,8 @@ $(document).ready(function(){
     //     }
     // };
 
-    // if(flightResults !== 'null'){
-    //     $('#resultDetails').show(10)
-    //     $('#flightDetails').show(10)
-    // }
+    if(flightResults !== 'null'){
+        $('#resultDetails').show(10)
+        $('#flightDetails').show(10)
+    }
 })
