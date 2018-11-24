@@ -41,8 +41,16 @@
         <div class="row">
             <div class="col s1"></div>
             <div class="col s10">
-                <ul class="collection">
-                    <li class="collection-item avatar">
+                <span id="results"></span>
+            </div>
+            <div class="col s1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s10">
+                <ul hidden class="collection" id="resultDetails">
+                    <li hidden class="collection-item avatar" id="flightDetails">
                         <i class="material-icons circle green">flight_takeoff</i>
                             <span class="flight"><b>Flight Details</b></span>
                             <p>Airline: <span id="airline"></span></p>
@@ -50,14 +58,14 @@
                             <p>Departure Date: <span id="departure-date"></span></p>
                             <p>Return Date: <span id="return-date"></span></p>
                     </li>
-                    <li class="collection-item avatar">
+                    <li hidden class="collection-item avatar">
                         <i class="material-icons circle blue">hotel</i>
                             <span class="hotel"><b>Hotel Details</b></span>
                             <p>Hotel: <span id="hotel"></span></p>
                             <p>Check-in Date: <span id="check-in-date"></span></p>
                             <p>Check-out Date: <span id="check-out-date"></span></p>
                     </li>
-                    <li class="collection-item avatar">
+                    <li hidden class="collection-item avatar">
                         <i class="material-icons circle red">restaurant</i>
                         <span class="dinner"><b>Dinner Recommendations</b></span>
                         <p>Recommendation 1: <span id="restaurant1"></span></p>
