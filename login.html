@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Roulette Results</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Courgette|Pacifico" rel="stylesheet">
+</head>
+
+<body id="body">
+    <nav id="navbar">
+        <div class="nav-wrapper #0d47a1 blue darken-4">
+            <a href="index.html" class="brand-logo right"><i class="material-icons">flight_takeoff</i></a>
+            <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down #0d47a1 blue darken-4">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10">
+            <h2 id="header">Travel Roulette</h2>
+        </div>
+        <div class="col s1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="card col s10">
+            <form class>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Email" id="email" type="email" class="validate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit" class="btn #1a237e indigo darken-4" id="login-submit" >Let's Play Travel Roulette</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col s1"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/logic.js"></script>
+    <script src="assets/javascript/login.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>

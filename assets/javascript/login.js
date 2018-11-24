@@ -14,7 +14,7 @@ function login(){
 $('#login-submit').on('click', function(e){
     e.preventDefault();
     login();
-    window.location = "search.html"
+    window.location = "index.html"
 });
 
 
