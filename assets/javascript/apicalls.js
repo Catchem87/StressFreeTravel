@@ -156,6 +156,11 @@ var flight = {
                     'airline': apiAirline
                 }
 
+                var optionList = JSON.stringify(options)
+
+                localStorage.setItem('options', optionList)
+
+
                 // console.log(apiDestination)
                 city.search(apiDestination, i)
             }
@@ -285,7 +290,7 @@ var city = {
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
-    window.location = "results.html"
+    // window.location = "results.html"
 });
 
 inputOrigin.addEventListener("keydown", function (e) {
