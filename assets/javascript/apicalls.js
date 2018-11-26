@@ -164,47 +164,11 @@ var flight = {
 
                 var optionList = JSON.stringify(options)
                 localStorage.setItem('options', optionList)
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-                
-=======
->>>>>>> master
-=======
->>>>>>> cd8b395972c353deb9caae3444796c64f9adbc12
             }
         })
     },
 };
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-var hotel = {
-    search(location, checkIn, checkOut) {
-
-        var hoteltQueryURL = api.hotel.url + '&apikey=' +
-            api.hotel.key + '&location=' + location + '&check_in=' + checkIn + '&check_out=' + checkOut
-
-        $.ajax({
-            url: hoteltQueryURL,
-            method: 'GET',
-        }).then(function (response) {
-
-            // console.log(response)
-            // let number = response.results.length
-            // console.log(number)
-
-            // for (i = 0; i < numberOfHotels; i++){
-
-            // console.log(response.results[i])
-
-            // }    
-        })
-    }
-}
 
 var airport = {
     param: {
@@ -323,6 +287,7 @@ var city = {
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
+    window.location = "results.html"
 });
 
 inputOrigin.addEventListener("keydown", function (e) {
