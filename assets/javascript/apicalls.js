@@ -157,10 +157,6 @@ var flight = {
                 }
 
                 // console.log(apiDestination)
-<<<<<<< HEAD
-=======
-
->>>>>>> 011dc0677dad0744fc52e0b082974fa52231be3c
                 city.search(apiDestination, i)
             }
         })
