@@ -33,6 +33,84 @@
     margin: 0 100px;
 }
 
+/* Results Page */
+#resultDetailsOne {
+    font-family: 'Niramit', sans-serif;
+}
+
+.flight {
+    font-size: 22pt;
+    color: rgb(8, 5, 63);
+    text-decoration: underline;
+}
+
+.carousel.carousel-slider .carousel-item p {
+    color: rgb(11, 11, 194);
+    font-family: 'Sedgwick Ave', cursive;
+    font-size: 18pt;
+    margin-top: 7px;
+}
+#airlineOne {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63)
+}
+#destinationOne {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#departure-dateOne {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);
+}
+#return-dateOne {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);
+}
+#priceOne {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);
+}
+#airlineTwo {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#destinationTwo {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#departure-dateTwo {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#return-dateTwo {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#priceTwo {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);
+}
+#airlineThree {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#destinationThree {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#departure-dateThree {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#return-dateThree {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);    
+}
+#priceThree {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(24, 18, 63);
+}
+
 
 /* Phone on screens that are 640px or less */
 @media (max-width: 640px) {
@@ -44,5 +122,56 @@
     }
     #about-para {
         font-size: 1.25rem;
+    }
+    .flight {
+        font-size: 1.25rem;
+    }
+    .carousel.carousel-slider .carousel-item p {
+        font-size: 1.25rem;
+    }
+    #airlineOne {
+        font-size: 1rem;
+    }
+    #destinationOne {
+        font-size: 1rem;
+    }
+    #departure-dateOne {
+        font-size: 1rem;
+    }
+    #return-dateOne {
+        font-size: 1rem;
+    }
+    #priceOne {
+        font-size: 1rem;
+    }
+    #airlineTwo {
+        font-size: 1rem;
+    }
+    #destinationTwo {
+        font-size: 1rem;
+    }
+    #departure-dateTwo {
+        font-size: 1rem;
+    }
+    #return-dateTwo {
+        font-size: 1rem;
+    }
+    #priceTwo {
+        font-size: 1rem;
+    }
+    #airlineThree {
+        font-size: 1rem;
+    }
+    #destinationThree {
+        font-size: 1rem;
+    }
+    #departure-dateThree {
+        font-size: 1rem;
+    }
+    #return-dateThree {
+        font-size: 1rem;
+    }
+    #priceThree {
+        font-size: 1rem;
     }
 }

@@ -286,7 +286,7 @@ var city = {
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
-    // window.location = "results.html"
+    window.location = "results.html"
 });
 
 inputOrigin.addEventListener("keydown", function (e) {

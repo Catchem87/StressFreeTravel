@@ -31,22 +31,51 @@ $(document).ready(function(){
     $('#destinationOne').html(destinations[0])
     $('#departure-dateOne').html(departures[0])
     $('#return-dateOne').html(returns[0])
+    $('#priceOne').html('$' + prices[0])
         
     $('#airlineTwo').html(airlines[1])
     $('#destinationTwo').html(destinations[1])
     $('#departure-dateTwo').html(departures[1])
     $('#return-dateTwo').html(returns[1])
+    $('#priceTwo').html('$' + prices[1])
 
     $('#airlineThree').html(airlines[2])
     $('#destinationThree').html(destinations[2])
     $('#departure-dateThree').html(departures[2])
     $('#return-dateThree').html(returns[2])
-
-
+    $('#priceThree').html('$' + prices[2])
     }
 
     createVariables();
 
+    // var city = {
+    //     search(cityCode){
+    
+    //         var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
+    
+    //         $.ajax({
+    //             url: cityQueryURL,
+    //             method: 'GET',
+    //         }).then(function(response){
+    //             console.log(response)
+    //             if(response.city.state === ''){
+    //                 var city = (response.city.name + ', ' + response.city.country)
+    //             }else {
+    //                 var city = (response.city.name + ', ' + response.city.state)
+    //             }
+    //             console.log(city)
+    
+    //             cities[i] = {
+    //                 'cityName': city,
+    //             }
+    //             console.log(cities[i])
+    
+    //             var cityResults = JSON.stringify(cities[i])
+    //             localStorage.setItem('cityResults', cityResults)
+    //             console.log(cityResults)
+    //         })
+    //     }
+    // };
     
 
     if(flightResults !== 'null'){
