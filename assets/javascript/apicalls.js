@@ -133,7 +133,7 @@ var flight = {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
-            // console.log(response)
+            console.log(response)
             var apiCurrency = response.currency;
             var apiOrigin = response.origin;
 
@@ -159,7 +159,6 @@ var flight = {
                     'airline': apiAirline
                 }
 
-                hotel.search(apiDestination, apiDepartureDate, apiReturnDate)
                 city.search(apiDestination, i)
 
                 var optionList = JSON.stringify(options)
@@ -287,7 +286,7 @@ var city = {
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
-    window.location = "results.html"
+    // window.location = "results.html"
 });
 
 inputOrigin.addEventListener("keydown", function (e) {

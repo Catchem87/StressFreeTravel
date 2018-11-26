@@ -4,7 +4,7 @@ $(document).ready(function(){
         indicators: true
       });
 
-    var flightResults =  JSON.parse(localStorage.getItem('flightResults'));
+    var flightResults =  JSON.parse(localStorage.getItem('options'));
     console.log(flightResults)
 
     function createVariables(){
@@ -26,39 +26,28 @@ $(document).ready(function(){
     console.log(returns)
     console.log(prices)
     console.log(destinations)
+
+    $('#airlineOne').html(airlines[0])
+    $('#destinationOne').html(destinations[0])
+    $('#departure-dateOne').html(departures[0])
+    $('#return-dateOne').html(returns[0])
+        
+    $('#airlineTwo').html(airlines[1])
+    $('#destinationTwo').html(destinations[1])
+    $('#departure-dateTwo').html(departures[1])
+    $('#return-dateTwo').html(returns[1])
+
+    $('#airlineThree').html(airlines[2])
+    $('#destinationThree').html(destinations[2])
+    $('#departure-dateThree').html(departures[2])
+    $('#return-dateThree').html(returns[2])
+
+
     }
 
     createVariables();
 
-
-    // var city = {
-    //     search(cityCode){
     
-    //         var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
-    
-    //         $.ajax({
-    //             url: cityQueryURL,
-    //             method: 'GET',
-    //         }).then(function(response){
-    //             console.log(response)
-    //             if(response.city.state === ''){
-    //                 var city = (response.city.name + ', ' + response.city.country)
-    //             }else {
-    //                 var city = (response.city.name + ', ' + response.city.state)
-    //             }
-    //             console.log(city)
-    
-    //             cities[i] = {
-    //                 'cityName': city,
-    //             }
-    //             console.log(cities[i])
-    
-    //             var cityResults = JSON.stringify(cities[i])
-    //             localStorage.setItem('cityResults', cityResults)
-    //             console.log(cityResults)
-    //         })
-    //     }
-    // };
 
     if(flightResults !== 'null'){
         $('#resultDetailsOne').show()
@@ -71,9 +60,8 @@ $(document).ready(function(){
         $('resultDetailsOne').show()
     }
 
-    if(restaurantResults !== 'null'){
-        $('#restaurantDetailsOne').show()
-        $('#restaurantDetailsTwo').show()
-        $('#restaurantDetailsThree').show()
-    }
-})
+    // if(restaurantResults !== 'null'){
+    //     $('#restaurantDetailsOne').show()
+    //     $('#restaurantDetailsTwo').show()
+    //     $('#restaurantDetailsThree').show()
+    })
