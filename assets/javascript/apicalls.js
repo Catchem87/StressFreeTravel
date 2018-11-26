@@ -50,10 +50,7 @@ const api = {
         'key': 'wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K',
         'url': 'https://api.sandbox.amadeus.com/v1.2/airports/autocomplete?',
     },
-    hotel: {
-        'key': 'wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K',
-        'url': 'https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?',
-    },
+  
     restaurant: {
         'key': "3af23862d3e820bbb9145cf83841a6c1",
         'url': "https://developers.zomato.com/api/v2.1/search?",
@@ -159,14 +156,13 @@ var flight = {
                     'airline': apiAirline
                 }
 
+                // console.log(apiDestination)
                 city.search(apiDestination, i)
-
-                var optionList = JSON.stringify(options)
-                localStorage.setItem('options', optionList)
             }
         })
     },
 };
+
 
 
 var airport = {
@@ -215,8 +211,8 @@ var city = {
                 options[i].state = response.city.state,
                 options[i].lat = response.city.location.latitude,
                 options[i].lon = response.city.location.longitude,
-
-                city.detail(options[i].lat, options[i].lon, i)
+            
+            city.detail(options[i].lat, options[i].lon, i)
             city.restaurants(options[i].lat, options[i].lon, i)
         })
     },
@@ -229,7 +225,7 @@ var city = {
             '&lon=' + lon +
             '&count=' + qty
 
-
+        console.log(queryRestaurantURL)
         $.ajax({
             url: queryRestaurantURL,
             method: 'GET',
@@ -259,13 +255,15 @@ var city = {
                 });
         })
 
+      
+
     },
 
     detail(lat, lon, i) {
         var queryCityURL = api.city.url +
             '&lat=' + lat +
             '&lon=' + lon
-
+        // console.log(lat + " " + lon)
 
         $.ajax({
             url: queryCityURL,
@@ -274,6 +272,7 @@ var city = {
                 'user-key': api.restaurant.key
             }
         }).then(function (response) {
+            // console.log(response)
             options[i].country = response.location_suggestions[0].country_name;
             options[i].country_flag_url = response.location_suggestions[0].country_flag_url;
             options[i].state_code = response.location_suggestions[0].state_code;
