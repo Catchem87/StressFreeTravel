@@ -156,10 +156,6 @@ var flight = {
                     'airline': apiAirline
                 }
 
-                var optionList = JSON.stringify(options)
-
-                localStorage.setItem('options', optionList)
-
 
                 // console.log(apiDestination)
                 city.search(apiDestination, i)
@@ -257,9 +253,9 @@ var city = {
                         'thumb': item.restaurant.thumb,
                         'url': item.restaurant.thumb
                     })
-                    var restaurants = options[i].restaurants
-                    JSON.stringify(localStorage.setItem('restaurantList', restaurants))
-                    console.log(restaurants)
+                    var fullResults = JSON.stringify(options)
+                    localStorage.setItem('fullResults', fullResults)
+                    console.log(fullResults)
                 });
         })
 
@@ -293,7 +289,7 @@ var city = {
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     flight.search();
-    // window.location = "results.html"
+    window.location = "results.html"
 });
 
 inputOrigin.addEventListener("keydown", function (e) {
