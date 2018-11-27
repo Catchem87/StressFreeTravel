@@ -67,12 +67,28 @@ for (var i = 0; i < resultsParse.length; i++) {
             $('resultDetailsOne').show()
         }
 
-        for (var j = 0; restaurants[i].length; j++) {
-            var p = $('<p>')
-            p.html('')
+        if (restaurants !== '') {
+            $('#restaurantDetailsOne').show()
+            $('#restaurantDetailsTwo').show()
+            $('#restaurantDetailsThree').show()
         }
     }
 }
+
+['One', 'Two', 'Three'].forEach(function(destinationNumber, j){
+    if(restaurants[j] !== undefined){
+        for (var g = 0; g < restaurants[j].length; g++){
+            var p = $('<p>')
+            p.html("Recommendation: " + restaurants[j][g].name)
+            $('#restaurantDetails' + destinationNumber).append(p)
+        }
+    }else {
+        var p = $('<p>')
+        p.html("Sorry No Restaurant Recommendations Available")
+        $('#restaurantDetails' + destinationNumber).append(p)
+    } 
+})
+
 
 
 // }
