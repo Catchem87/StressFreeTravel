@@ -164,6 +164,13 @@ var flight = {
                 // console.log(apiDestination)
                 city.search(apiDestination, i)
             }
+        }).catch(function(error){
+            
+            let errorCode = error.responseJSON.status
+            
+            localStorage.getItem('errorCode',errorCode)
+                    
+            }
         })
     },
 };
