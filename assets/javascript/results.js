@@ -32,26 +32,26 @@ for (var i = 0; i < resultsParse.length; i++) {
     returns[i] = resultsParse[i].return
     prices[i] = resultsParse[i].price
     cities[i] = resultsParse[i].city
-    countries[i] = resultsParse[i].country
+    // countries[i] = resultsParse[i].country
     restaurants[i] = resultsParse[i].restaurants
 
     if (restaurants.length > 0) {
-        console.log(restaurants[i])
+        // console.log(restaurants[i])
 
         $('#airlineOne').html(airlines[0])
-        $('#destinationOne').html(cities[0] + ', ' + countries[0])
+        $('#destinationOne').html(cities[0])
         $('#departure-dateOne').html(departures[0])
         $('#return-dateOne').html(returns[0])
         $('#priceOne').html('$' + prices[0])
 
         $('#airlineTwo').html(airlines[1])
-        $('#destinationTwo').html(cities[1] + ', ' + countries[1])
+        $('#destinationTwo').html(cities[1])
         $('#departure-dateTwo').html(departures[1])
         $('#return-dateTwo').html(returns[1])
         $('#priceTwo').html('$' + prices[1])
 
         $('#airlineThree').html(airlines[2])
-        $('#destinationThree').html(cities[2] + ', ' + countries[2])
+        $('#destinationThree').html(cities[2])
         $('#departure-dateThree').html(departures[2])
         $('#return-dateThree').html(returns[2])
         $('#priceThree').html('$' + prices[2])
