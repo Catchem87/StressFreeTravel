@@ -7,7 +7,6 @@ $(document).ready(function () {
 
 console.log('start')
 
-
 var results = localStorage.getItem('fullResults')
 var resultsParse = JSON.parse(results)
 console.log(resultsParse)
@@ -45,7 +44,6 @@ for (var i = 0; i < resultsParse.length; i++) {
         $('#return-dateOne').html(returns[0])
         $('#priceOne').html('$' + prices[0])
 
-
         $('#airlineTwo').html(airlines[1])
         $('#destinationTwo').html(cities[1] + ', ' + countries[1])
         $('#departure-dateTwo').html(departures[1])
@@ -58,7 +56,6 @@ for (var i = 0; i < resultsParse.length; i++) {
         $('#return-dateThree').html(returns[2])
         $('#priceThree').html('$' + prices[2])
 
-
         if (airlines !== '') {
             $('#resultDetailsOne').show()
             $('#flightDetailsOne').show()
@@ -70,17 +67,15 @@ for (var i = 0; i < resultsParse.length; i++) {
             $('resultDetailsOne').show()
         }
 
-
         for (var j = 0; restaurants[i].length; j++) {
-
+            var p = $('<p>')
+            p.html('')
         }
     }
 }
 
 
-
 // }
-
 
 
 // var number = restaurants[i].length
@@ -90,21 +85,6 @@ for (var i = 0; i < resultsParse.length; i++) {
 // }
 
 
-
-// console.log(airlines)
-// console.log(departures)
-// console.log(returns)
-// console.log(prices)
-// console.log(cities)
-// console.log(countries)
-// console.log(restaurants)
-
-
-
-
-
-
-
 // if(restaurants !== 'null'){
 //     // restaurants.forEach((item)=>{
 //     //     // var p = $('<p>')
@@ -112,13 +92,13 @@ for (var i = 0; i < resultsParse.length; i++) {
 //     //     // $('#restaurantDetailsOne').append(p)
 //     //     console.log(restaurants)
 //     //     console.log(item)
-
+	
 //     // })
 //     // $('#restaurantDetailsOne').show()
 //     // $('#restaurantDetailsTwo').show()
 //     // $('#restaurantDetailsThree').show()
 // }
 
-
 // createVariables();
 // showFlights();
+
