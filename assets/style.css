@@ -39,7 +39,12 @@
 }
 
 .flight {
-    font-size: 22pt;
+    font-size: 18pt;
+    color: rgb(8, 5, 63);
+    text-decoration: underline;
+}
+.dinner {
+    font-size: 18pt;
     color: rgb(8, 5, 63);
     text-decoration: underline;
 }
@@ -47,7 +52,7 @@
 .carousel.carousel-slider .carousel-item p {
     color: rgb(11, 11, 194);
     font-family: 'Sedgwick Ave', cursive;
-    font-size: 18pt;
+    font-size: 12pt;
     margin-top: 7px;
 }
 #airlineOne {
