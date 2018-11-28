@@ -5,7 +5,6 @@ $(document).ready(function () {
     });
 })
 
-console.log('start')
 
 var results = localStorage.getItem('fullResults')
 var resultsParse = JSON.parse(results)

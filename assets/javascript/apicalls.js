@@ -71,7 +71,7 @@ var flight = {
         'maxPrice': "", // Maximum price of trips to find in the result set, in the currency specified for this origin and destination pair in the cache contents spreadsheet. So, for example, if the origin is NYC, and the max price is 400, this means 400 USD. If the origin is PAR, and the max price is 400, this means 400 EUR. By default, no limit is applied
         'aggregationMode': "COUNTRY", //Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.
     },
-    search() {
+    search(callback) {
         flight.search.city = inputOrigin.value
         flight.search.origin = inputOrigin.value.substr(-4, 3);
         flight.search.departureDate = inputStartDate.value
@@ -155,7 +155,7 @@ var flight = {
                 }
 
                 // console.log(apiDestination)
-                city.search(apiDestination, i)
+                city.search(apiDestination, i, callback)
             }
         })
     },
@@ -194,7 +194,7 @@ var airport = {
 }
 
 var city = {
-    search(cityCode, i) {
+    search(cityCode, i, callback) {
 
         var cityQueryURL = 'https://api.sandbox.amadeus.com/v1.2/location/' + cityCode + '?apikey=wMaXQOdEowMqQ7QJtcHGjjt67AxtGJ6K';
 
@@ -209,11 +209,12 @@ var city = {
                 options[i].lat = response.city.location.latitude,
                 options[i].lon = response.city.location.longitude,
             
-            city.detail(options[i].lat, options[i].lon, i)
-            city.restaurants(options[i].lat, options[i].lon, i)
+            city.detail(options[i].lat, options[i].lon, i, function(){
+                city.restaurants(options[i].lat, options[i].lon, i, callback);
+            })
         })
     },
-    restaurants(lat, lon, i) {
+    restaurants(lat, lon, i, callback) {
 
         var qty = flight.search.duration
 
@@ -253,13 +254,14 @@ var city = {
                     localStorage.setItem('fullResults', fullResults)
                     console.log(fullResults)
                 });
+                callback();
         })
 
       
 
     },
 
-    detail(lat, lon, i) {
+    detail(lat, lon, i, callback) {
         var queryCityURL = api.city.url +
             '&lat=' + lat +
             '&lon=' + lon
@@ -277,6 +279,7 @@ var city = {
             options[i].country_flag_url = response.location_suggestions[0].country_flag_url;
             options[i].state_code = response.location_suggestions[0].state_code;
             options[i].state_name = response.location_suggestions[0].state_name;
+            callback();
         })
 
     }
@@ -284,8 +287,9 @@ var city = {
 
 btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
-    flight.search();
-    window.location = "results.html"
+    flight.search(function(){
+        window.location = "results.html"
+    });
 });
 
 inputOrigin.addEventListener("keydown", function (e) {
